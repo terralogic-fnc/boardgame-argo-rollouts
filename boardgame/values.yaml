@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: gkamalakar1006/boardgames
-  tag: "22f2b5"
+  tag: "ced575"
   pullPolicy: Always
 
 service:
