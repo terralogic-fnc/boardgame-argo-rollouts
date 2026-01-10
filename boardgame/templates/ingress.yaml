@@ -6,10 +6,10 @@ metadata:
   namespace: board-games
   annotations:
     kubernetes.io/ingress.class: alb
-    alb.ingress.kubernetes.io/scheme: {{ .Values.ingress.scheme }}
-    alb.ingress.kubernetes.io/target-type: {{ .Values.ingress.targetType }}
-    alb.ingress.kubernetes.io/group.name: {{ .Values.ingress.groupName }}
-    alb.ingress.kubernetes.io/listen-ports: {{ .Values.ingress.listenPorts }}
+    alb.ingress.kubernetes.io/scheme: {{ .Values.ingress.scheme | quote }}
+    alb.ingress.kubernetes.io/target-type: {{ .Values.ingress.targetType | quote }}
+    alb.ingress.kubernetes.io/group.name: {{ .Values.ingress.groupName | quote }}
+    alb.ingress.kubernetes.io/listen-ports: {{ .Values.ingress.listenPorts | quote }}
 spec:
   rules:
     - http:
