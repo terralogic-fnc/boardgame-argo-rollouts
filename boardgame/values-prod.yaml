@@ -1,0 +1,7 @@
+replicaCount: 4
+
+image:
+  tag: "13d402"
+
+ingress:
+  host: boardgame.example.com

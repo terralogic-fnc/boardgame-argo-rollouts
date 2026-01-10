@@ -1,0 +1,25 @@
+replicaCount: 2
+
+image:
+  repository: gkamalakar1006/boardgames
+  tag: "13d402"
+  pullPolicy: Always
+
+service:
+  port: 80
+  targetPort: 8080
+
+ingress:
+  enabled: true
+  scheme: internet-facing
+  targetType: ip
+  groupName: boardgame
+  listenPorts: '[{"HTTP":80}]'
+
+resources:
+  requests:
+    cpu: "100m"
+    memory: "128Mi"
+  limits:
+    cpu: "500m"
+    memory: "256Mi"

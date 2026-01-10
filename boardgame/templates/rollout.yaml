@@ -1,0 +1,48 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: boardgame
+  namespace: board-games
+spec:
+  replicas: {{ .Values.replicaCount }}
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: boardgame
+  strategy:
+    canary:
+      stableService: boardgame-svc
+      canaryService: boardgame-svc-preview
+      trafficRouting:
+        alb:
+          ingress: boardgame-ingress
+          servicePort: {{ .Values.service.port }}
+      steps:
+        - setWeight: 30
+        - pause:
+            duration: 60
+        - setWeight: 60
+        - pause:
+            duration: 120
+  template:
+    metadata:
+      labels:
+        app: boardgame
+    spec:
+      containers:
+        - name: boardgame
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.targetPort }}
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
