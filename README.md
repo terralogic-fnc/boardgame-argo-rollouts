@@ -22,23 +22,22 @@ This setup enables **zero-downtime deployments**, **progressive traffic shifting
 
 ---
 
-## 🧱 Architecture Overview
-
 User
-│
-▼
+  │
+  ▼
 AWS Application Load Balancer (ALB)
-│
-▼
+  │
+  ▼
 Kubernetes Ingress
-│
-▼
+  │
+  ▼
 Argo Rollouts
-├── Stable Service (boardgame-svc)
-└── Canary Service (boardgame-svc-preview)
-│
-▼
-Application Pods
+  ├── Stable Service  (boardgame-svc)
+  └── Canary Service  (boardgame-svc-preview)
+          │
+          ▼
+      Application Pods
+
 
 
 ---
