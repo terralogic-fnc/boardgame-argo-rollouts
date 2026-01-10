@@ -14,7 +14,9 @@ ingress:
   scheme: internet-facing
   targetType: ip
   groupName: boardgame
-  listenPorts: '[{"HTTP":80}]'
+  listenPorts:
+    - HTTP: 80
+
 
 
 resources:
