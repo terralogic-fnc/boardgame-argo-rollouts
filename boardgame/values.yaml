@@ -16,6 +16,7 @@ ingress:
   groupName: boardgame
   listenPorts: '[{"HTTP":80}]'
 
+
 resources:
   requests:
     cpu: "100m"
