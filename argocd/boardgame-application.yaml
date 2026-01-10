@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: boardgame
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/terralogic-fnc/boardgame-argo-rollouts.git
+    targetRevision: main
+    path: boardgame
+  destination:
+    server: https://EF3620DCD3ED84054D2CFDF6CC4220CB.gr7.ap-south-1.eks.amazonaws.com
+    namespace: board-games
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
