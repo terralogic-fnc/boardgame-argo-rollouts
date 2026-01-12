@@ -1,7 +1,7 @@
 replicaCount: 2
 
 image:
-  repository: gkamalakar1006/boardgames
+  repository: kamalakar2210/boardgames
   tag: b75eb6
   pullPolicy: Always
 
