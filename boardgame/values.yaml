@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: kamalakar2210/boardgames
-  tag: 04b851
+  tag: 4aa300
   pullPolicy: Always
 
 service:
