@@ -2,7 +2,7 @@ replicaCount: 2
 
 image:
   repository: kamalakar2210/boardgames
-  tag: caf318
+  tag: 43879a
   pullPolicy: Always
 
 service:
